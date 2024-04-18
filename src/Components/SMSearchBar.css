@@ -1,0 +1,14 @@
+body{
+    font-size: 1.372rem;
+    line-height: 1.5495;
+    letter-spacing: -.02em;
+    font-family: sans-serif;
+    
+}
+
+#country-select-demo{
+    border-radius: 4px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+}
