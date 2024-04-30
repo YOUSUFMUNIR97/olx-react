@@ -10,7 +10,7 @@ export const SMCountryBar = (props) => {
     <>
       <Autocomplete
         id="country-select-demo"
-        sx={{ width: 300, margin: '10px' }}
+        sx={{ width: "auto", margin: '10px' }}
         options={props.countries}
         autoHighlight
         getOptionLabel={(option) => option.label}

@@ -14,22 +14,27 @@ const SearchBar = ({ placeholder, value, onChange }) => {
           paddingLeft: '10px', // To accommodate the icon
           borderRadius: '5px',
           border: '1px solid #ccc',
-          width: '500px',
+          width: '100%',
           // display: 'flex',
           height:"52px",
           fontSize:"20px"
         }}
       />
-      <SearchIcon
-        style={{
+      <div style={{
           position: 'absolute',
-          top: '30%',
+          top: '11%',
           // transform: 'translateY(-50%)',
-          right: '20px',
-          color: 'black',
+          right: '5px',
+          color: 'white',
+          backgroundColor:"black",
+          padding:"14px",
+          borderRadius:"0px 20px 20px 0px"
           // cursor: 'pointer',
-        }}
-      />
+        }}>
+      <SearchIcon/>
+      </div>
+        
+    
 
 
       
