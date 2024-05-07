@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+import Modal from '@mui/material/Modal';
 import SMCountryBar from './SMCountryBar';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import SearchBar from './SMSearchBar';
@@ -8,15 +10,54 @@ import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutline
 import { ImageAspectRatioSharp } from '@mui/icons-material';
 import SMSellButton from './SMSellButton';
 import SMTags from './SMTags';
+import { Box, Button, Typography } from '@mui/material';
 
 const SabHeader = () => {
 
+
+
+    const style = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+        bgcolor: 'background.paper',
+        // border: '2px solid #000',
+        // boxShadow: 24,
+        // marginBottom:'1.6rem',
+        textAlign: 'center',
+        justifyContent: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        p: 4,
+    };
+
+
+
     const [searchTerm, setSearchTerm] = useState('');
+    const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
+
+    const navigate = useNavigate()
 
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
         // Here you can perform any action based on the search term
     };
+
+    const handleLoginClick = () => {
+        setIsModalOpen(true); // Open the modal when "Login" is clicked
+        console.log(isModalOpen);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false); // Close the modal
+    };
+
+    // const handleclick = () => {
+    //     navigate('/Login')
+    // }
+
 
     return (
         <div className='row' style={{ display: "flex", flexDirection: "row", alignItems: 'center', borderBottom: '1px solid #d8dfe0' }}>
@@ -62,15 +103,38 @@ const SabHeader = () => {
             </div>
 
 
-            <div className='col-md-3 col-sm-6 ' style={{display:"flex", justifyContent:"flex-start", alignItems:"center"}}>
+            <div className='col-md-3 col-sm-6 ' style={{ display: "flex", justifyContent: "flex-start", alignItems: "center" }}>
 
-                <h5 className='m-2'>Login</h5>
+                <Button className='m-2' onClick={handleLoginClick}>Login</Button>
                 <SMIcon iconName={<ChatBubbleOutlineOutlinedIcon />} />
 
                 <SMIcon iconName={<NotificationsOutlinedIcon />} />
 
                 <SMSellButton />
             </div>
+
+            {/* Modal Component */}
+            <Modal
+                keepMounted
+                open={isModalOpen}
+                onClose={handleCloseModal}
+                aria-labelledby="keep-mounted-modal-title"
+                aria-describedby="keep-mounted-modal-description"
+            >
+                <Box sx={style}>
+                    <img src="https://www.olx.com.pk/assets/brandIconLogin_noinline.93e8a1a9cf50902ba5250814f57810ff.svg" height='50px' style={{ marginBottom: '5px' }} />
+                    <Typography id="keep-mounted-modal-title" variant="h6" component="h1" style={{ fontWeight: '700', lineHeight: '3.6', }}>
+                        Login into your OLX account
+                    </Typography>
+
+                    <button type="button" style={{backgroundColor:"blue"}} className="text-white bg-blue-900 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 me-2 mb-2">
+                        <svg className='m-2' style={{width:"20px", height:"20px"}} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+                            <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
+                        </svg>
+                        Sign in with Facebook
+                    </button>
+                </Box>
+            </Modal>
 
 
         </div>

@@ -8,6 +8,8 @@ import SMSlider from '../Components/SMSlider'
 import Allcategories from '../Components/Allcategories'
 import Footer from '../Components/Footer'
 import TopFooter from '../Components/TopFooter'
+import MobilePhones from '../Components/MobilePhones.jsx'
+import SMCard from '../Components/SMCard.jsx'
 
 const Home = () => {
   return (
@@ -33,9 +35,18 @@ const Home = () => {
         <Allcategories />
       </div>
 
+    <div>
+      <MobilePhones/>
+    </div>
+
+    <div>
+      <SMCard/>
+    </div>
+      
       <div>
         <TopFooter />
       </div>
+
 
       <div>
         <Footer />
