@@ -8,7 +8,7 @@ const SMIconButton = (props) => {
     <Button style={{
       color: "#002f34",
     }} startIcon={ // StartIcon prop to add the icon
-      <IconButton classNameName='mainheadicon' >
+      <IconButton className='mainheadicon' >
         {props.icon} {/* The icon passed as a prop */}
       </IconButton>
     }
