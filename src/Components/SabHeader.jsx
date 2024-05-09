@@ -10,12 +10,14 @@ import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutline
 import { ImageAspectRatioSharp } from "@mui/icons-material";
 import SMSellButton from "./SMSellButton";
 import SMTags from "./SMTags";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, IconButton, Typography } from "@mui/material";
 import AuthenticationButton from "./AuthenticationButton ";
-import FacebookIcon from '@mui/icons-material/Facebook';
-import GoogleIcon from '@mui/icons-material/Google';
-import MailIcon from '@mui/icons-material/Mail';
-import PhoneIcon from '@mui/icons-material/Phone';
+import FacebookIcon from "@mui/icons-material/Facebook";
+import GoogleIcon from "@mui/icons-material/Google";
+import MailIcon from "@mui/icons-material/Mail";
+import PhoneIcon from "@mui/icons-material/Phone";
+import CloseIcon from "@mui/icons-material/Close";
+
 
 const SabHeader = () => {
   const fbsvgData = `<svg
@@ -152,10 +154,23 @@ const SabHeader = () => {
         aria-describedby="keep-mounted-modal-description"
       >
         <Box sx={style}>
+          <IconButton
+            aria-label="close"
+            onClick={handleCloseModal}
+            sx={{
+              position: "absolute",
+              right: 8,
+              top: 8,
+              color: (theme) => theme.palette.grey[500],
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+
           <img
             src="https://www.olx.com.pk/assets/brandIconLogin_noinline.93e8a1a9cf50902ba5250814f57810ff.svg"
             height="50px"
-            style={{ marginBottom: "5px" }}
+            style={{ margin: "15px" }}
           />
           <Typography
             id="keep-mounted-modal-title"
@@ -173,14 +188,27 @@ const SabHeader = () => {
                         Sign in with Facebook
                     </button> */}
 
-          <AuthenticationButton icon={<FacebookIcon color="primary"/>} label="Sign in with Facebook" />
-          <AuthenticationButton icon={<GoogleIcon  color="success" />} label="Sign in with Google" />
+          <AuthenticationButton
+            icon={<FacebookIcon color="primary" />}
+            label="Sign in with Facebook"
+          />
+          <AuthenticationButton
+            icon={<GoogleIcon color="success" />}
+            label="Sign in with Google"
+          />
 
-          Or
+          <p className="my-2"> OR </p>
 
-
-          <AuthenticationButton icon={<MailIcon color="primary"/>} label="Sign in with Email" />
-          <AuthenticationButton icon={<PhoneIcon  color="success" />} label="Sign in with Phone" />
+          <AuthenticationButton
+            icon={<MailIcon color="#002f34" />}
+            label="Sign in with Email"
+          />
+          <AuthenticationButton
+            icon={<PhoneIcon color="#002f34" />}
+            label="Sign in with Phone"
+          />
+          
+          <Button className="my-2" style={{color:"#3a77ff", fontWeight:"700" }}> New to OLX ? Create an Account </Button>
         </Box>
       </Modal>
     </div>
