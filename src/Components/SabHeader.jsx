@@ -17,6 +17,9 @@ import GoogleIcon from "@mui/icons-material/Google";
 import MailIcon from "@mui/icons-material/Mail";
 import PhoneIcon from "@mui/icons-material/Phone";
 import CloseIcon from "@mui/icons-material/Close";
+import { socialMediaAuth } from "../Config/FirebaseSetup/FirebaseMethods";
+import {googleProvider} from "../Config/FirebaseSetup/FirebaseMethods";
+
 
 const SabHeader = () => {
   const fbsvgData = `<svg
@@ -81,6 +84,19 @@ const SabHeader = () => {
   // const handleclick = () => {
   //     navigate('/Login')
   // }
+
+
+  const handleOnClick = (provider) => {
+    socialMediaAuth(provider)
+    .then((res) => {
+        console.log('done');
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+    // console.log("click")
+};
+
 
   return (
     <div
@@ -202,6 +218,7 @@ const SabHeader = () => {
           <AuthenticationButton
             icon={<GoogleIcon color="success" />}
             label="Sign in with Google"
+            onClick={() => handleOnClick(googleProvider)}
           />
 
           <p className="my-2"> OR </p>
@@ -276,6 +293,7 @@ const SabHeader = () => {
           <AuthenticationButton
             icon={<GoogleIcon color="success" />}
             label="Join with Google"
+            onClick={() => handleOnClick(googleProvider)}
           />
 
           <p className="my-2"> OR </p>
