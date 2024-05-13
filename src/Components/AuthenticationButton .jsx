@@ -1,7 +1,7 @@
 import { Box, Icon, IconButton, Typography } from "@mui/material";
 import React from "react";
 
-const AuthenticationButton = ({ icon, label }) => {
+const AuthenticationButton = ({ icon, label, onClick }) => {
   const style = {
     position: "absolute",
     top: "50%",
@@ -42,6 +42,7 @@ const AuthenticationButton = ({ icon, label }) => {
       type="button"
       // style={{ backgroundColor: "blue" }}
       className="text-black focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 me-2 mb-2"
+     onClick={onClick}
     >
      <IconButton > {icon} </IconButton>
       <span style={{fontSize:"16px"}}>{label}</span>
