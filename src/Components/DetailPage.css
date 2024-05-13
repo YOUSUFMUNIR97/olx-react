@@ -1,0 +1,9 @@
+a{
+    color: rgba(0, 47, 52, 0.64);
+    text-decoration: none;
+}
+
+h6{
+    border-top: 1px solid rgba(0,47,52,.36);
+    /* padding: 15px; */
+}
